@@ -1,0 +1,1 @@
+This demo tracer implements learning concepts from Peter Shirley's raytracing in a weekend series.
