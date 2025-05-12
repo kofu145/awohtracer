@@ -7,6 +7,7 @@ class camera {
         double aspect_ratio = 16.0 / 9.0;
         int image_width = 100;
         int samples_per_pixel = 10; // count of random samples for each pixel
+        int max_depth = 10; // maximum number of ray bounces
 
         void render(const hittable& world) {
             initialize();
@@ -19,7 +20,7 @@ class camera {
                     color pixel_color(0, 0, 0);
                     for (int sample = 0; sample < samples_per_pixel; sample++){
                         ray r = get_ray(i, j);
-                        pixel_color += ray_color(r, world);
+                        pixel_color += ray_color(r, max_depth, world);
                     }
 
                     write_color(std::cout, pixel_samples_scale * pixel_color);
@@ -84,7 +85,10 @@ class camera {
             return vec3(random_double() - 0.5, random_double() - 0.5, 0);
         }
         
-        color ray_color(const ray& r, const hittable& world) {
+        color ray_color(const ray& r, int depth, const hittable& world) {
+            if (depth <= 0){
+                return color(0, 0, 0); // no more light gathered if exceeded ray bounce limit
+            }
             /*
             auto t = hit_sphere(point3(0, 0, -1), 0.5, r);
             if (t > 0.0){ // we've intersected the sphere
@@ -95,8 +99,10 @@ class camera {
             }*/
 
             hit_record rec;
-            if (world.hit(r, interval(0, infinity), rec)) {
-                return 0.5 * (rec.normal + color(1, 1, 1));
+            if (world.hit(r, interval(0.001, infinity), rec)) {
+                vec3 direction = random_on_hemisphere(rec.normal);
+                // return 0.5 * (rec.normal + color(1, 1, 1));
+                return 0.5 * ray_color(ray(rec.p, direction), depth-1, world);
             }
 
             vec3 unit_direction = unit_vector(r.direction());
