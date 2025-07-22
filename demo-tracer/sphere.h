@@ -10,6 +10,8 @@ class sphere : public hittable {
             bbox = aabb(static_center - rvec, static_center + rvec);
         }
 
+        aabb bounding_box() const override { return bbox; }
+        
         sphere(const point3& center1, const point3& center2, double radius, shared_ptr<material> mat) : center(center1, center2-center1), radius(std::fmax(0, radius)), mat(mat) {
             // bounding box around the ENTIRE possible range of motion for the sphere
             auto rvec = vec3(radius, radius, radius);
