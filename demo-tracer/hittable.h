@@ -12,6 +12,8 @@ class hit_record {
         point3 p; // point of collision
         vec3 normal; // surface normal
         shared_ptr<material> mat;
+        double u;
+        double v;
         double t; // what T was during P(t) = A + tb
         bool front_face; // determining the side of the surface the ray intersects
         // our normals are going to always point against where the ray intersects, so
