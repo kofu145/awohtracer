@@ -6,6 +6,7 @@
 #include "sphere.h"
 #include "material.h"
 #include "camera.h"
+#include "texture.h"
 
 int main() {
 
