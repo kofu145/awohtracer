@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/project.dir/link.d "CMakeFiles/project.dir/demo-tracer/rt_main.cpp.o" -o project

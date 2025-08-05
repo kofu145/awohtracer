@@ -1,0 +1,3 @@
+/home/kofu/Projects/awohtracer/build/CMakeFiles/project.dir
+/home/kofu/Projects/awohtracer/build/CMakeFiles/edit_cache.dir
+/home/kofu/Projects/awohtracer/build/CMakeFiles/rebuild_cache.dir
