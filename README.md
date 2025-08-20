@@ -1,7 +1,7 @@
 # awohtracer
 A raytracing/pathtracing rendering library built from scratch with C++. 
 This project is my university capstone project - resources and the like will be detailed (WIP) within the project.
-
+Demo-Tracer is the main test application learned off of that was mostly formed off of Peter Shirley's Raytracing in One Weekend series.
 
 ## Usage (WIP)
 
@@ -9,6 +9,5 @@ This project is my university capstone project - resources and the like will be 
 cmake - build sys
 going over secondary step - textures
 
-## Library dev (not started)
-Should begin after finishing all rtweekend facets - look into pathtracing
-- Monte carlo
+## Library dev 
+In Progress, full API not fully complete
