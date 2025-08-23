@@ -1,4 +1,5 @@
 #pragma once
+#include "math/vec3.h"
 
 class material; // reference to class to solve circular dependency
 
